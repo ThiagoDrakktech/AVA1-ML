@@ -9,13 +9,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["senha"];
 
     // Define o nome do arquivo CSV
-    $archive = "bd/cadastro.csv";
+    $archive = "bd/cadastros.csv";
 
     // Abre o arquivo para escrita (se não existir, cria)
-    $fp = fopen($arquivo, "a");
+    $fp = fopen($archive, "a");
 
     // Escreve os dados no CSV
-    fputcsv($fp, [$name, $cpf, $adress, $celfone, $email, $password]);
+    fputcsv($fp, [$name, $cpf, $adress, $celfone, $email, $password], ",", '"', "\\");
 
     // Fecha o arquivo
     fclose($fp);
